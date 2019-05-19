@@ -1,0 +1,9 @@
+
+* [2019-05-19] First commit on new fork with the following changes:
+    - Changed template.yaml for eu-west-1 region (default) and
+    using latest PHP layer (6).
+    - Changed .env.production to solve some issues.
+    - Removed the demo view and routes. Added a simple /hello route.
+
+
+* [2019-05-19] Forked https://github.com/mnapoli/bref-laravel-demo

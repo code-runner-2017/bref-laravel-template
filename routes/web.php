@@ -16,25 +16,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Swap\Laravel\Facades\Swap;
 
-Route::any('/', function (Request $request) {
-    $dollars = $request->get('money', null);
-
-    if ($dollars !== null) {
-        try {
-            /** @var \Exchanger\ExchangeRate $rate */
-            $rate = Swap::latest('USD/EUR');
-            $euros = $dollars * $rate->getValue();
-        } catch (\Exception $e) {
-            $error = true;
-            Log::error('Error fetching exchange rates: ' . $e->getMessage(), [
-                'exception' => $e,
-            ]);
-        }
-    }
-
-    return view('welcome', [
-        'dollars' => $dollars,
-        'euros' => $euros ?? null,
-        'error' => $error ?? false,
+Route::any('/hello', function (Request $request) {
+    return response()->json([
+        'hello' => 'world'
     ]);
 });
